@@ -147,6 +147,8 @@ return [
         Cars\Providers\EventServiceProvider::class,
         Cars\Providers\RouteServiceProvider::class,
 
+        \Cars\Providers\ViewServiceProvider::class,
+
     ],
 
     /*
