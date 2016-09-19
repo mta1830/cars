@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('dropdown', function () {
+    return view('components/dropdowns');
+});
