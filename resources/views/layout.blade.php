@@ -46,7 +46,7 @@
     </nav>
 
     <div class="container">
-      @yield('section')
+      @yield('content')
     </div><!-- /.container -->
 
 
@@ -64,7 +64,7 @@
         // $('#search select').change(function () {
         //    $('#search').submit();
         // });
-        $('select').select2({
+        $('#search select').select2({
             allowClear: true,
             placeholder: {
                 id: "",

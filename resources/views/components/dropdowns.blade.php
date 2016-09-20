@@ -1,5 +1,5 @@
-@extends('layouts')
-@section('section')
+@extends('layout')
+@section('content')
   <h1>Dynamic dropdown</h1>
   {!! Form::model($makeForm,['method'=>'GET','class' => 'form', 'id'=>'search']) !!}
     {!! Field::select('make_id', $makes) !!}
