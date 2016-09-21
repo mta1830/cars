@@ -12,8 +12,8 @@
 */
 use Cars\Models\Model;
 use Cars\Models\MakeYear;
-use Cars\Feature;
-use Cars\Car;
+use Cars\Models\Feature;
+use Cars\Models\Car;
 
 Route::get('/', function () {
     return view('welcome');

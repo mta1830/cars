@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Cars\Http\Requests;
 use Cars\Http\Controllers\Controller;
 
-use Cars\Car;
-use Cars\Feature;
+use Cars\Models\Car;
+use Cars\Models\Feature;
 
 class FeaturesController extends Controller
 {
@@ -19,11 +19,15 @@ class FeaturesController extends Controller
     return view('components/features', compact('features', 'car'));
   }
 
-  public function update()
+  public function update(Request $request)
   {
+    $features = $request->get('features');
+
+    Feature::addNewFeatures($features);
+
     $car = Car::first();
-    $features = Feature::whereIn('id', Request::get('features'))->get();
-    $car->features()->sync($features);
+    $car->saveFeatures($features);
+
     return redirect()->to('features');
   }
 }
