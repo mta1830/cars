@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Cars\Feature;
+use Cars\Models\Feature;
 
 class FeatureTableSeeder extends Seeder
 {
