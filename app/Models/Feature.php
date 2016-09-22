@@ -13,8 +13,11 @@ class Feature extends Model
         $features = array_filter($features, function ($value) {
             return !is_numeric($value);
         });
+        
+        $features = array_map('trim', $features);
+
         $features = array_unique($features);
-        array_walk($features, 'trim');
+
         $features = array_filter($features, function ($value) {
             return strlen($value) >= 2;
         });
