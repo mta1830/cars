@@ -9,6 +9,8 @@
 
     {!! Form::open(['class' => 'form']) !!}
         {!! Field::text('user', ['class' => 'easy-autocomplete']) !!}
+        {!! Field::hidden('user_id',null,['id'=>'user_id']) !!}
+        {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
 
 @endsection
@@ -46,6 +48,19 @@
                 list: {
                     match: {
                         enabled: true
+                    },
+                    onSelectItemEvent: function () {
+                        var user = $("#user").getSelectedItemData();
+
+                        //Con la instrucción debajo llevaremos un registro de los usuarios que son seleccionados, mostrados en la consola del navegador
+                        //console.log(user);
+
+                        $('#user_id').val(user.id);
+                        //window.location.href = '/users/' + user.id;
+                    },
+                    onClickEvent: function () {
+                        var user = $("#user").getSelectedItemData();
+                        window.location.href = '/users/' + user.id;
                     }
                 },
                 theme: "bootstrap",
@@ -61,7 +76,10 @@
                 },
                 requestDelay: 500
             };
-            $("#user").easyAutocomplete(options);
+
+            $("#user").easyAutocomplete(optionsAjax).change(function () {
+              $('#user_id').val('');
+            });
         });
     </script>
 

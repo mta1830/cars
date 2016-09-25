@@ -5,6 +5,10 @@ Route::get('autocomplete/demo', function () {
     return view('components/autocomplete_demo');
 });
 
+Route::post('autocomplete/demo', function () {
+    return Request::all();
+});
+
 Route::get('autocomplete/users', function () {
     // return [
     //   [

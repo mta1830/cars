@@ -10,9 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use Cars\Models\User;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('users/{id}', function ($id) {
+    return User::findOrFail($id);
 });
 
 Route::get('bootstrap', function () {
